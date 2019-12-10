@@ -31,7 +31,7 @@ def main():
 			print(element.find('miss').text)
 		i+=1
 
-	if (i < 5)
+	if i < 5:
 		print('\n' * (5 - i))
 
 	print("---------------- PORT A L'ANGLAIS -----------(1)-")
