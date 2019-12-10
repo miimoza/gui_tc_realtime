@@ -42,8 +42,9 @@ def main():
 	print(H_125_A)
 	print(H_125_R)
 
-	print("=================================================\n")
+	print("=================================================")
 
 	for i in range(0, 48):
 	    print('.',end='', flush=True)
 	    time.sleep(0.5)
+	print()
