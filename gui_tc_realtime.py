@@ -21,7 +21,8 @@ def main():
 
 
 	os.system('clear')
-	print("===================== RER C =================(4)=\n")
+	print("=============================================(4)=\n")
+	print("--------------------- RER C -----------------(4)=\n")
 
 	for element in H_RER_C.findall('train'):
 	    print(element.find('date').text, end=' | ')
@@ -41,7 +42,7 @@ def main():
 	print(H_125_A)
 	print(H_125_R)
 
-	print("=================================================")
+	print("=================================================\n")
 
 	for i in range(0, 48):
 	    print('.',end='', flush=True)
