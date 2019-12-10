@@ -2,33 +2,41 @@ import xml.etree.ElementTree as ET
 import requests
 from requests.auth import HTTPBasicAuth
 import subprocess
+import datetime
 import time
 import os
 
 def main():
-	try:
-	    H_180_A = subprocess.getoutput("./skedul.sh b 180 'port a l anglais' A")
-	    H_180_R = subprocess.getoutput("./skedul.sh b 180 'port a l anglais' R")
-	    H_217_A = subprocess.getoutput("./skedul.sh b 217 'vitry RER' A")
-	    H_25_A = subprocess.getoutput("./skedul.sh b 25 'Duras' R")
-	    H_323_R = subprocess.getoutput("./skedul.sh b 323 'Gambetta' R")
-	    H_125_A = subprocess.getoutput("./skedul.sh b 125 'Gambetta' A")
-	    H_125_R = subprocess.getoutput("./skedul.sh b 125 'Gambetta' R")
-	    r = requests.get('https://api.transilien.com/gare/87545293/depart', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
-	    H_RER_C = ET.fromstring(r.content)
-	except ValueError:
-	    print("Error")
+	H_180_A = subprocess.getoutput("./skedul.sh b 180 'port a l anglais' A")
+	H_180_R = subprocess.getoutput("./skedul.sh b 180 'port a l anglais' R")
+	H_217_A = subprocess.getoutput("./skedul.sh b 217 'vitry RER' A")
+	H_25_A = subprocess.getoutput("./skedul.sh b 25 'Duras' R")
+	H_323_R = subprocess.getoutput("./skedul.sh b 323 'Gambetta' R")
+	H_125_A = subprocess.getoutput("./skedul.sh b 125 'Gambetta' A")
+	H_125_R = subprocess.getoutput("./skedul.sh b 125 'Gambetta' R")
+	r_C_ALL = requests.get('https://api.transilien.com/gare/87545293/depart', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
+
+	r_C_BNF = requests.get('https://api.transilien.com/gare/87545293/depart/87328328', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
+	r_C_CHS = requests.get('https://api.transilien.com/gare/87545293/depart/87545285', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
+	H_C_BNF = ET.fromstring(r_C_BNF.content)
+	H_C_CHS = ET.fromstring(r_C_CHS.content)
+
 
 
 	os.system('clear')
-	print("=================================================")
+	print("==========[ " + str(datetime.datetime.now()) + " ]=========")
+	print("=                                               =")
 	print("--------------------- RER C -----------------(4)=")
+	print("         VERS BNF       |       VERS CHOISY      ")
 
 	i=0
-	for element in H_RER_C.findall('train'):
+	for E_C_BNF, E_C_CHS in zip(H_C_BNF.findall('train'), H_C_CHS.findall('train')):
 		if i < 5:
-			print(element.find('date').text, end=' | ')
-			print(element.find('miss').text)
+			print(' ' + E_C_BNF.find('date').text, end=' ')
+			print(' ' + E_C_BNF.find('miss').text, end=' | ')
+
+			print(E_C_CHS.find('date').text, end=' ')
+			print(E_C_CHS.find('miss').text)
 		i+=1
 
 	if i < 5:
