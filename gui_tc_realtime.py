@@ -21,7 +21,7 @@ def main():
 
 
 	os.system('clear')
-	print("===================== RER CA =================(4)=\n")
+	print("===================== RER CACAO =================(4)=\n")
 
 	for element in H_RER_C.findall('train'):
 	    print(element.find('date').text, end=' | ')
