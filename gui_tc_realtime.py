@@ -21,14 +21,18 @@ def main():
 
 
 	os.system('clear')
-	print("=============================================(4)=")
-	print("--------------------- RER C -----------------(4)=\n")
+	print("=================================================")
+	print("--------------------- RER C -----------------(4)=")
 
+	i=0
 	for element in H_RER_C.findall('train'):
-	    print(element.find('date').text, end=' | ')
-	    print(element.find('miss').text)
+		if i < 5:
+			print(element.find('date').text, end=' | ')
+			print(element.find('miss').text)
+		i+=1
 
-	print("\n=================================================")
+	if (i < 5)
+		print('\n' * (5 - i))
 
 	print("---------------- PORT A L'ANGLAIS -----------(1)-")
 	print(H_180_A)
@@ -41,7 +45,6 @@ def main():
 	print(H_323_R)
 	print(H_125_A)
 	print(H_125_R)
-
 	print("=================================================")
 
 	for i in range(0, 48):
