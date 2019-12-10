@@ -25,7 +25,6 @@ def main():
 
 	os.system('clear')
 	print("==========[ " + str(datetime.datetime.now()) + " ]=========")
-	print("=                                               =")
 	print("--------------------- RER C -----------------(4)=")
 	print("         VERS BNF       |       VERS CHOISY      ")
 
