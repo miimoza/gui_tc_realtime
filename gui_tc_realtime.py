@@ -27,7 +27,7 @@ def main():
 
 	print("="*27 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(24) + "]" + "="*27)
 	print("-"*30 + " GARE VITRY RER C ".center(20,"-") + "-"*25 + "-(1)-")
-	print("VERS BNF".center(20) + "|" + "VERS CHOISY".center(20))
+	print("VERS BNF".center(38) + "|" + "VERS CHOISY".center(39))
 
 	i=0
 	for E_C_BNF, E_C_CHS in zip(H_C_BNF.findall('train'), H_C_CHS.findall('train')):
