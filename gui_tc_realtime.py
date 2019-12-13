@@ -11,14 +11,14 @@ def main():
 	move_cursor(0,0)
 	gui_tc()
 
-	for i in range(0, 30):
+	for i in range(0, 29):
 		move_cursor(i, 48)
 		print("|")
 
 	move_cursor(0, 49)
 	nadine()
 
-	move_cursor(30, 0)
+	move_cursor(29, 0)
 	print("="*80)
 	for i in range(0, 80):
 	    print('.',end='', flush=True)
