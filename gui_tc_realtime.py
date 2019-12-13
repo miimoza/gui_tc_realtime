@@ -229,5 +229,3 @@ def gui_tc():
 	print("-"*14 + " GAMBETTA ".center(20,"-") + "-"*7 + "-(125)-")
 	print(H_125_A)
 	print(H_125_R)
-
-main()
