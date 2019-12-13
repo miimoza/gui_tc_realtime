@@ -17,6 +17,7 @@ def main():
 
 	move_cursor(0, 49)
 	nadine()
+	meteo()
 
 	move_cursor(28, 0)
 	print("="*80)
@@ -27,10 +28,20 @@ def main():
 def move_cursor(y, x):
 	os.system("tput cup " + str(y) + " " + str(x))
 
+def meteo():
+	print("in dev")
+	api = "https://api.meteo-concept.com/api/"
+	token = "82caf19ff0ff78534e4ca42c6695a2c53b770ea9bb4404cbf0f826c45bd03d32"
+
+	request = api + "?token=" + token
+	res = requests.get(request)
+	print(res)
+
+
 def nadine():
 	print("="*10 + "[" + "nadine".center(10) +"]" + "="*9)
 
-
+	print("in dev")
 
 def gui_tc():
 	H_180_A = subprocess.getoutput("./skedul.sh b 180 'port a l anglais' A")
