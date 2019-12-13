@@ -6,11 +6,28 @@ import datetime
 import time
 import os
 
-def main():
-	gui_tc()
-	print("\033[%d;%dH" % (50, 50))
-	print("yes")
 
+def main():
+	move_cursor(0,0)
+	gui_tc()
+
+	for i in range(0, 32):
+		move_cursor(i, 48)
+		print("|")
+
+	move_cursor(0, 49)
+	nadine()
+
+	move_cursor(32, 0)
+	for i in range(0, 80):
+	    print('.',end='', flush=True)
+	    time.sleep(0.2)
+
+def move_cursor(y, x):
+	os.system("tput cup " + str(y) + " " + str(x))
+
+def nadine():
+	print("="*10 + "[" + "nadine".center(10) +"]" + "="*10)
 
 def gui_tc():
 	H_180_A = subprocess.getoutput("./skedul.sh b 180 'port a l anglais' A")
@@ -61,7 +78,9 @@ def gui_tc():
 	print(H_125_R)
 	print("="*48)
 
+	'''
 	for i in range(0, 48):
 	    print('.',end='', flush=True)
 	    time.sleep(0.5)
 	print()
+	'''
