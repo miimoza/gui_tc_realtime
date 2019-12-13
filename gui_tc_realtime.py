@@ -25,7 +25,7 @@ def main():
 
 	os.system('clear')
 
-	print("="*29 + "[" + str(datetime.datetime.now()).center(20) + "]" + "="*29)
+	print("="*26 + "[" + str(datetime.datetime.now()).center(20) + "]" + "="*26)
 	print("-"*30 + " GARE VITRY RER C ".center(20,"-") + "-"*25 + "-(1)-")
 	print("         VERS BNF       |       VERS CHOISY      ")
 
