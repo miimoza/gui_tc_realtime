@@ -73,12 +73,3 @@ def gui_tc():
 	print("-"*14 + " GAMBETTA ".center(20,"-") + "-"*7 + "-(125)-")
 	print(H_125_A)
 	print(H_125_R)
-	print('\n'*2)
-
-
-	'''
-	for i in range(0, 48):
-	    print('.',end='', flush=True)
-	    time.sleep(0.5)
-	print()
-	'''
