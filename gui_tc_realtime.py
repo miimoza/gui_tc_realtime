@@ -25,7 +25,7 @@ def main():
 
 	os.system('clear')
 
-	print("="*27 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(34) + "]" + "="*27)
+	print("="*27 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(24) + "]" + "="*27)
 	print("-"*30 + " GARE VITRY RER C ".center(20,"-") + "-"*25 + "-(1)-")
 	print("         VERS BNF       |       VERS CHOISY      ")
 
