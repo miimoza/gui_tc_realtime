@@ -8,8 +8,6 @@ import os
 import re
 
 def main():
-	os.system('clear')
-
 	move_cursor(0,0)
 	gui_tc()
 
@@ -202,6 +200,7 @@ def gui_tc():
 	H_C_CHS = ET.fromstring(r_C_CHS.content)
 
 
+	os.system('clear')
 
 	print("="*13 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "="*13)
 	print("-"*14 + " GARE VITRY RER C ".center(20,"-") + "-"*9 + "-(1)-")
