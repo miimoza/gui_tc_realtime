@@ -37,7 +37,7 @@ def meteo():
 	route = "location/city"
 	request = api + route + "?token=" + token
 	res = requests.get(request)
-	print(res)
+	print(res.content)
 
 
 def nadine():
