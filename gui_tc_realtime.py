@@ -21,41 +21,39 @@ def main():
 	H_C_BNF = ET.fromstring(r_C_BNF.content)
 	H_C_CHS = ET.fromstring(r_C_CHS.content)
 
-
-
 	os.system('clear')
 
-	print("="*27 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(24) + "]" + "="*27)
-	print("-"*30 + " GARE VITRY RER C ".center(20,"-") + "-"*25 + "-(1)-")
-	print("VERS BNF".center(40) + "|" + "VERS CHOISY".center(39))
+	print("="*13 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "="*13)
+	print("-"*14 + " GARE VITRY RER C ".center(20,"-") + "-"*9 + "-(1)-")
+	print("VERS BNF".center(24) + "|" + "VERS CHOISY".center(23))
 
 	i=0
 	for E_C_BNF, E_C_CHS in zip(H_C_BNF.findall('train'), H_C_CHS.findall('train')):
 		if i < 5:
-			print((E_C_BNF.find('date').text + ' ' + E_C_BNF.find('miss').text).center(40), end='|')
-			print((E_C_CHS.find('date').text + ' ' + (E_C_CHS.find('miss').text)).center(39))
+			print((E_C_BNF.find('date').text + ' ' + E_C_BNF.find('miss').text).center(24), end='|')
+			print((E_C_CHS.find('date').text + ' ' + (E_C_CHS.find('miss').text)).center(23))
 		i+=1
 
 	if i < 5:
 		print('\n' * (5 - i))
 
-	print("-"*30 + " PORT A L'ANGLAIS ".center(20,"-") + "-"*25 + "-(1)-")
-	print("-"*30 + " 180 ".center(20,"-") + "-"*25 + "-(1)-")
+	print("-"*14 + " PORT A L'ANGLAIS ".center(20,"-") + "-"*9 + "-(1)-")
+	print("-"*14 + " 180 ".center(20,"-") + "-"*9 + "-(1)-")
 	print(H_180_A)
 	print(H_180_R)
-	print("-"*30 + " DURAS ".center(20,"-") + "-"*25 + "-(1)-")
-	print("-"*30 + " 25 ".center(20,"-") + "-"*25 + "-(1)-")
+	print("-"*14 + " DURAS ".center(20,"-") + "-"*9 + "-(1)-")
+	print("-"*14 + " 25 ".center(20,"-") + "-"*9 + "-(1)-")
 	print(H_25_A)
-	print("-"*30 + " VTRY RER ".center(20,"-") + "-"*25 + "-(1)-")
-	print("-"*30 + " 217 ".center(20,"-") + "-"*25 + "-(1)-")
+	print("-"*14 + " VTRY RER ".center(20,"-") + "-"*9 + "-(1)-")
+	print("-"*14 + " 217 ".center(20,"-") + "-"*9 + "-(1)-")
 	print(H_217_A)
-	print("-"*30 + " GAMBETTA ".center(20,"-") + "-"*25 + "-(1)-")
-	print("-"*30 + " 323 ".center(20,"-") + "-"*25 + "-(1)-")
+	print("-"*14 + " GAMBETTA ".center(20,"-") + "-"*9 + "-(1)-")
+	print("-"*14 + " 323 ".center(20,"-") + "-"*9 + "-(1)-")
 	print(H_323_R)
-	print("-"*30 + " 125 ".center(20,"-") + "-"*25 + "-(1)-")
+	print("-"*14 + " 125 ".center(20,"-") + "-"*9 + "-(1)-")
 	print(H_125_A)
 	print(H_125_R)
-	print("="*80)
+	print("="*48)
 
 	for i in range(0, 48):
 	    print('.',end='', flush=True)
