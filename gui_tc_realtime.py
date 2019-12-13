@@ -11,14 +11,14 @@ def main():
 	move_cursor(0,0)
 	gui_tc()
 
-	for i in range(0, 28):
+	for i in range(0, 30):
 		move_cursor(i, 48)
 		print("|")
 
 	move_cursor(0, 49)
 	nadine()
 
-	move_cursor(28, 0)
+	move_cursor(30, 0)
 	for i in range(0, 80):
 	    print('.',end='', flush=True)
 	    time.sleep(0.2)
@@ -27,7 +27,7 @@ def move_cursor(y, x):
 	os.system("tput cup " + str(y) + " " + str(x))
 
 def nadine():
-	print("="*10 + "[" + "nadine".center(10) +"]" + "="*10)
+	print("="*10 + "[" + "nadine".center(10) +"]" + "="*9)
 
 def gui_tc():
 	H_180_A = subprocess.getoutput("./skedul.sh b 180 'port a l anglais' A")
