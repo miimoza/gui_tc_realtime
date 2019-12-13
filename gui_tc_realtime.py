@@ -7,6 +7,12 @@ import time
 import os
 
 def main():
+	gui_tc()
+    print("\033[%d;%dH" % (50, 50))
+	print("yes")
+
+
+def gui_tc():
 	H_180_A = subprocess.getoutput("./skedul.sh b 180 'port a l anglais' A")
 	H_180_R = subprocess.getoutput("./skedul.sh b 180 'port a l anglais' R")
 	H_217_A = subprocess.getoutput("./skedul.sh b 217 'vitry RER' A")
