@@ -32,11 +32,10 @@ def main():
 	i=0
 	for E_C_BNF, E_C_CHS in zip(H_C_BNF.findall('train'), H_C_CHS.findall('train')):
 		if i < 5:
-			print(' ' + E_C_BNF.find('date').text, end=' ')
-			print(' ' + E_C_BNF.find('miss').text, end=' | ')
-
-			print(E_C_CHS.find('date').text, end=' ')
-			print(E_C_CHS.find('miss').text)
+			print((E_C_BNF.find('date').text).center(19), end=' ')
+			print((E_C_BNF.find('miss').text).center(20), end='|')
+			print((E_C_CHS.find('date').text).center(19), end=' ')
+			print((E_C_CHS.find('miss').text).center(19))
 		i+=1
 
 	if i < 5:
