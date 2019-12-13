@@ -11,7 +11,7 @@ def main():
 	os.system('clear')
 
 	move_cursor(0,0)
-	#gui_tc()
+	gui_tc()
 
 	for i in range(0, 28):
 		move_cursor(i, 48)
