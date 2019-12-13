@@ -60,7 +60,7 @@ def gui_tc():
 	if i < 5:
 		print('\n' * (5 - i))
 
-	print("-"*14 + " PORT A L'ANGLAIS [180]".center(20,"-") + "-"*9 + "-(1)-")
+	print("-"*12 + " PORT A L'ANGLAIS [180]".center(24,"-") + "-"*7 + "-(1)-")
 	print(H_180_A)
 	print(H_180_R)
 	print("-"*14 + " DURAS [25]".center(20,"-") + "-"*9 + "-(1)-")
