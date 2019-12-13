@@ -34,8 +34,8 @@ def meteo():
 	print("in dev")
 	api = "https://api.meteo-concept.com/api/"
 	token = "82caf19ff0ff78534e4ca42c6695a2c53b770ea9bb4404cbf0f826c45bd03d32"
-
-	request = api + "?token=" + token
+	route = "location/city"
+	request = api + route + "?token=" + token
 	res = requests.get(request)
 	print(res)
 
