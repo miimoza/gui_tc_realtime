@@ -11,14 +11,14 @@ def main():
 	move_cursor(0,0)
 	gui_tc()
 
-	for i in range(0, 32):
+	for i in range(0, 28):
 		move_cursor(i, 48)
 		print("|")
 
 	move_cursor(0, 49)
 	nadine()
 
-	move_cursor(32, 0)
+	move_cursor(28, 0)
 	for i in range(0, 80):
 	    print('.',end='', flush=True)
 	    time.sleep(0.2)
@@ -65,9 +65,9 @@ def gui_tc():
 	print(H_180_R)
 	print("-"*14 + " DURAS ".center(20,"-") + "-"*8 + "-(25)-")
 	print(H_25_A)
-	print("-"*14 + " VTRY RER ".center(20,"-") + "-"*7 + "-(125)-")
+	print("-"*14 + " VTRY RER ".center(20,"-") + "-"*7 + "-(217)-")
 	print(H_217_A)
-	print("-"*14 + " GAMBETTA ".center(20,"-") + "-"*7 + "-(125)-")
+	print("-"*14 + " GAMBETTA ".center(20,"-") + "-"*7 + "-(323)-")
 	print(H_323_R)
 	print("-"*14 + " GAMBETTA ".center(20,"-") + "-"*7 + "-(125)-")
 	print(H_125_A)
