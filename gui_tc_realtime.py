@@ -8,7 +8,7 @@ import os
 
 def main():
 	gui_tc()
-    print("\033[%d;%dH" % (50, 50))
+	print("\033[%d;%dH" % (50, 50))
 	print("yes")
 
 
