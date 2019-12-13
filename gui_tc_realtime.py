@@ -11,14 +11,14 @@ def main():
 	move_cursor(0,0)
 	gui_tc()
 
-	for i in range(0, 30):
+	for i in range(0, 27):
 		move_cursor(i, 48)
 		print("|")
 
 	move_cursor(0, 49)
 	nadine()
 
-	move_cursor(30, 0)
+	move_cursor(31, 0)
 	for i in range(0, 80):
 	    print('.',end='', flush=True)
 	    time.sleep(0.2)
@@ -72,7 +72,7 @@ def gui_tc():
 	print("-"*14 + " GAMBETTA ".center(20,"-") + "-"*7 + "-(125)-")
 	print(H_125_A)
 	print(H_125_R)
-	print("="*48)
+	print("="*80)
 
 	'''
 	for i in range(0, 48):
