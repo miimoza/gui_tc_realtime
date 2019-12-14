@@ -204,7 +204,7 @@ def gui_tc():
 	os.system('clear')
 
 	print("="*13 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "="*13)
-	print("-"*14 + " GARE VITRY RER C ".center(20,"-") + "-"*9 + "-(1)-")
+	print("-"*14 + " GARE VITRY ".center(20,"-") + "-"*5 + "-(RER C)-")
 	print("VERS BNF".center(24) + "|" + "VERS CHOISY".center(23))
 
 	i=0
