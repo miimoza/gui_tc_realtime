@@ -135,13 +135,14 @@ def meteo():
 	token = "82caf19ff0ff78534e4ca42c6695a2c53b770ea9bb4404cbf0f826c45bd03d32"
 	param = "&insee=94081"
 
+	'''
 	#=====================================================
 	n = print_49(n, (" AUJOURD'HUI ").center(30, "_"))
 	route = "ephemeride/0"
 	request = api + route + "?token=" + token + param
 	res = requests.get(request)
 	n = print_49(n, res)
-	'''
+
 	ephemeride = res.json()["ephemeride"]
 
 	n = print_49(n, "sunrise: " + ephemeride["sunrise"])
