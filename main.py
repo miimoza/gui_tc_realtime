@@ -14,14 +14,14 @@ while True:
 	importlib.reload(display)
 
 	for i in range(0, 28):
-		move_cursor(i, 48)
+		display.move_cursor(i, 48)
 		print("|")
 
 	gui_tc_realtime.main()
 	nadine.main()
 	meteo.main()
 
-	move_cursor(28, 0)
+	display.move_cursor(28, 0)
 	print("="*80)
 	for i in range(0, 80):
 	    print('.',end='', flush=True)
