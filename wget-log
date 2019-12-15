@@ -1,0 +1,10 @@
+Resolving api-ratp.pierre-grimaud.fr (api-ratp.pierre-grimaud.fr)... 176.31.181.211
+Connecting to api-ratp.pierre-grimaud.fr (api-ratp.pierre-grimaud.fr)|176.31.181.211|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 447 [application/json]
+Saving to: ‘data_schedule’
+
+     0K                                                       100% 1.02M=0s
+
+2019-12-14 18:29:56 (1.02 MB/s) - ‘data_schedule’ saved [447/447]
+

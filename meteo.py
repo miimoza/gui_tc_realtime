@@ -152,4 +152,4 @@ def meteo():
 		n = display.print_49(n, "p: " + str(f["probarain"]) + "%")
 		n = display.print_49(n, re.sub("(.{30})", "\\1\n", get_weather(f["weather"]), 0, re.DOTALL))
 
-main()
+'''
