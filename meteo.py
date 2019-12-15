@@ -97,11 +97,11 @@ def get_weather(id):
 	return switch.get(id, "Invalid Weather")
 
 def main():
-	display.move_cursor(20, 49)
+	display.move_cursor(15, 49)
 	meteo()
 
 def meteo():
-	n = 20
+	n = 15
 
 
 	n = display.print_49(n, "="*10 + "[" + " METEO ".center(10) +"]" + "="*9)
