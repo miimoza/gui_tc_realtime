@@ -1,12 +1,29 @@
 import display
 from twython import Twython
 import json
+import requests
 
 
 def main():
 	display.move_cursor(0,49)
 
 	nadine()
+
+def getText(data):
+	try: text = data['retweeted_status']['extended_tweet']['full_text']
+	except:
+		try: text = data['retweeted_status']['full_text']
+		except:
+			try: text = data['extended_tweet']['full_text']
+			except:
+				try: text = data['full_text']
+				except:
+					try: text = data['retweeted_status']['text']
+					except:
+						try: text = data['text']
+						except:
+							text = ''
+	return text
 
 def nadine():
 	username = "d_conversano"
@@ -30,8 +47,8 @@ def nadine():
 	twitter = Twython(credentials['CONSUMER_KEY'], credentials['CONSUMER_SECRET'])
 
 
-	tweets = twitter.get_user_timeline(screen_name = username, count = nb_tweet, include_rts = include_rt)
+	res = twitter.get_user_timeline(screen_name = username, count = nb_tweet, exclude_replies=True, tweet_mode="extended", include_rts = include_rt)
 
-	for t in tweets:
-		n = display.breakline_49(n, 30, t['text'])
-		n = display.print_49(n, '='*30)
+	for t in res:
+		n = display.breakline_49(n, 30, getText(t))
+		n = display.print_49(n, '-'*30)
