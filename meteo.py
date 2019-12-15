@@ -104,7 +104,7 @@ def meteo():
 	n = 15
 
 
-	n = display.print_49(n, "="*10 + "[" + " METEO ".center(10) +"]" + "="*9)
+	#n = display.print_49(n, "="*10 + "[" + " METEO ".center(10) +"]" + "="*9)
 
 	api = "https://api.meteo-concept.com/api/"
 	token = "82caf19ff0ff78534e4ca42c6695a2c53b770ea9bb4404cbf0f826c45bd03d32"
