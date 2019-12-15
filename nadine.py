@@ -35,8 +35,3 @@ def nadine():
 	for t in tweets:
 		n = display.breakline_49(n, 30, t['text'])
 		n = display.print_49(n, '='*30)
-
-
-
-
-main()
