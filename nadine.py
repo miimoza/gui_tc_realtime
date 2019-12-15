@@ -13,7 +13,6 @@ def nadine():
 
 	n = 0
 	n = display.print_49(n, "="*5 + "[" + ("@" + username).center(20) +"]" + "="*4)
-	n = display.print_49(n, "in dev")
 
 	# Enter your keys/secrets as strings in the following fields
 	credentials = {}
