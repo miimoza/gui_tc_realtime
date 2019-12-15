@@ -24,3 +24,6 @@ def breakline_49(n, width, text):
 
     #return '\n'.join(lines)
 	#return re.sub("(.{" + str(width) + "})", "\\1\n", text, 0, re.DOTALL)
+
+def remove_link(text):
+	return re.sub(r'^https?:\/\/.*[\r\n]*', '', text, flags=re.MULTILINE)

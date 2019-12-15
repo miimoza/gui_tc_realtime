@@ -50,5 +50,5 @@ def nadine():
 	res = twitter.get_user_timeline(screen_name = username, count = nb_tweet, exclude_replies=True, tweet_mode="extended", include_rts = include_rt)
 
 	for t in res:
-		n = display.breakline_49(n, 30, getText(t))
+		n = display.breakline_49(n, 30, display.remove_link(getText(t)))
 		n = display.print_49(n, '-'*30)
