@@ -9,7 +9,9 @@ def main():
 	nadine()
 
 def nadine():
-	username = "nadine__morano"
+	username = "d_conversano"
+	nb_tweet = 3
+	include_rt = True
 
 	n = 0
 	n = display.print_49(n, "="*5 + "[" + ("@" + username).center(20) +"]" + "="*4)
@@ -28,7 +30,7 @@ def nadine():
 	twitter = Twython(credentials['CONSUMER_KEY'], credentials['CONSUMER_SECRET'])
 
 
-	tweets = twitter.get_user_timeline(screen_name = username, count = 1, include_rts = False)
+	tweets = twitter.get_user_timeline(screen_name = username, count = nb_tweet, include_rts = include_rt)
 
 	for t in tweets:
 		n = display.breakline_49(n, 30, t['text'])
