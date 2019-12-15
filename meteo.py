@@ -121,7 +121,7 @@ def meteo():
 	ephemeride = res.json()["ephemeride"]
 
 	n = display.print_49(n, "sunrise: " + ephemeride["sunrise"])
-	n = n = display.print_49(n, n, "sunset: " + ephemeride["sunset"])
+	n = display.print_49(n, "sunset: " + ephemeride["sunset"])
 	n = display.print_49(n, "day duration: " + ephemeride["duration_day"])
 	n = display.print_49(n, "moon age: " + str(ephemeride["moon_age"]))
 	n = display.print_49(n, "moon phase: " + ephemeride["moon_phase"])
@@ -151,4 +151,5 @@ def meteo():
 		n = display.print_49(n, (" " + day_step + " ").center(30, "-"))
 		n = display.print_49(n, "p: " + str(f["probarain"]) + "%")
 		n = display.print_49(n, re.sub("(.{30})", "\\1\n", get_weather(f["weather"]), 0, re.DOTALL))
-	'''
+
+main()
