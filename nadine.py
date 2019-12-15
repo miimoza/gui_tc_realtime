@@ -5,16 +5,15 @@ import json
 
 def main():
 	display.move_cursor(0,49)
+
 	nadine()
 
 def nadine():
-	# T1h0S6XQCCoQxLFdNQDuW0unI (API Key)
-	# 1qfhBFHZH7NCuQxnIzWvVK83wB0RaxRz68bRnYgcyIOZMpNj5j (API secret Key)
+	username = "nadine__morano"
 
-	#893087546-YncCVCH8ago2lJk5s3ZZRqUrvBr0bGwcnzagYvdE (Access token)
-	#zedKZSJ6jka0nEN4MWcVX1Ogoo8TBNVWDMlgvFHzayhB8 (Access token secret)
-	#Read and write (Access level)
-
+	n = 0
+	n = display.print_49(n, "="*5 + "[" + ("@" + username).center(20) +"]" + "="*4)
+	n = display.print_49(n, "in dev")
 
 	# Enter your keys/secrets as strings in the following fields
 	credentials = {}
@@ -27,9 +26,16 @@ def nadine():
 	with open("twitter_credentials.json", "w") as file:
 	    json.dump(credentials, file)
 
+	twitter = Twython(credentials['CONSUMER_KEY'], credentials['CONSUMER_SECRET'])
 
 
-	n = 0
-	n = display.print_49(n, "="*10 + "[" + "nadine".center(10) +"]" + "="*9)
+	tweets = twitter.get_user_timeline(screen_name = username, count = 1, include_rts = False)
 
-	n = display.print_49(n, "in dev")
+	for t in tweets:
+		n = display.breakline_49(n, 30, t['text'])
+		n = display.print_49(n, '='*30)
+
+
+
+
+main()
