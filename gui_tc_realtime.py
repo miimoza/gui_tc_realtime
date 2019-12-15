@@ -8,8 +8,11 @@ import display
 
 
 def main():
-	move_cursor(0,0)
+	display.move_cursor(0,0)
 	gui_tc()
+	for i in range(0, 28):
+		display.move_cursor(i, 48)
+		print("|")
 
 
 def gui_tc():

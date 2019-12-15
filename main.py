@@ -13,10 +13,6 @@ while True:
 	importlib.reload(meteo)
 	importlib.reload(display)
 
-	for i in range(0, 28):
-		display.move_cursor(i, 48)
-		print("|")
-
 	gui_tc_realtime.main()
 	nadine.main()
 	meteo.main()
