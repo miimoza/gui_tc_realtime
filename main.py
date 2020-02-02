@@ -2,9 +2,13 @@ import subprocess
 import importlib
 import gui_tc_realtime
 import nadine
+import nanbaptiste
 import meteo
 import display
 import time
+
+
+
 
 while True:
 	subprocess.check_call(["git","pull"])
@@ -12,7 +16,9 @@ while True:
 	importlib.reload(nadine)
 	importlib.reload(meteo)
 	importlib.reload(display)
+    importlib.reload(nanbaptiste)
 
+    nanbaptiste.main()
 	gui_tc_realtime.main()
 	nadine.main()
 	meteo.main()

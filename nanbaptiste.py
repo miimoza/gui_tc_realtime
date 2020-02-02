@@ -12,7 +12,7 @@ def main():
     while True:
         r = GPIO.input(BUTTON1_PIN)
         if r == False:
-            subprocess.run("play sounds/nanbaptiste.wav".split())
+            subprocess.run("play -q sounds/nanbaptiste.wav".split())
 
 
 main()
