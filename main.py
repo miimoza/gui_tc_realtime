@@ -6,8 +6,7 @@ import nanbaptiste
 import meteo
 import display
 import time
-
-
+from threading import Thread
 
 
 while True:
@@ -18,7 +17,10 @@ while True:
 	importlib.reload(display)
 	importlib.reload(nanbaptiste)
 
-	nanbaptiste.main()
+	button_thread = Thread(target = nanbaptiste.main())
+	button_thread.start()
+
+	
 	gui_tc_realtime.main()
 	nadine.main()
 	meteo.main()
