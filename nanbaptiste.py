@@ -12,10 +12,10 @@ def main():
 
     thread_button_1.start()
 
-button_check(BUTTON_PIN):
-    GPIO.setup(BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+button_check(gpio_number):
+    GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     while True:
-        r = GPIO.input(BUTTON_PIN)
+        r = GPIO.input(gpio_number)
         if r == False:
             subprocess.run("play -q sounds/nanbaptiste.wav".split())
