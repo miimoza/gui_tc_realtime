@@ -20,4 +20,5 @@ def button_check(gpio_number):
         r = GPIO.input(gpio_number)
         if r == False:
             cmd = "play -q sounds/nanbaptiste.wav".split()
+            FNULL = open(os.devnull, 'w')
             Thread(target = subprocess.call, args = (cmd,stdout=FNULL, stderr=subprocess.STDOUT)).start()
