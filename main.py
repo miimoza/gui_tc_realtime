@@ -16,7 +16,7 @@ while True:
 	importlib.reload(nadine)
 	importlib.reload(meteo)
 	importlib.reload(display)
-    importlib.reload(nanbaptiste)
+	importlib.reload(nanbaptiste)
 
     nanbaptiste.main()
 	gui_tc_realtime.main()
