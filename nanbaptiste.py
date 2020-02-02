@@ -22,4 +22,4 @@ def button_check(gpio_number):
             #cmd = "play -q sounds/nanbaptiste.wav".split()
             #FNULL = open(os.devnull, 'w')
             #Thread(target = subprocess.run, args = (cmd,)).start()
-            Thread(target = os.system, args = ("play -q sounds/nanbaptiste.wav &> /dev/null",))
+            Thread(target = os.system, args = ("play -q sounds/nanbaptiste.wav &> /dev/null",)).start()
