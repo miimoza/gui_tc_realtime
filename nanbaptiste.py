@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import subprocess
 from threading import Thread
+import os
 
 
 def main():
@@ -18,5 +19,5 @@ def button_check(gpio_number):
     while True:
         r = GPIO.input(gpio_number)
         if r == False:
-            cmd = "play -q sounds/nanbaptiste.wav 2>/dev/null".split()
-            Thread(target = subprocess.call, args = (cmd,)).start()
+            cmd = "play -q sounds/nanbaptiste.wav".split()
+            Thread(target = subprocess.call, args = (cmd,stdout=FNULL, stderr=subprocess.STDOUT)).start()
