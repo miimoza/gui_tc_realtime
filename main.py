@@ -6,7 +6,6 @@ import nanbaptiste
 import meteo
 import display
 import time
-from threading import Thread
 
 
 while True:
@@ -15,13 +14,9 @@ while True:
 	importlib.reload(nadine)
 	importlib.reload(meteo)
 	importlib.reload(display)
-	print("test3")
 	importlib.reload(nanbaptiste)
 
-	print("test")
-	button_thread = Thread(target = nanbaptiste.main(), args=[])
-	button_thread.start()
-	button_thread.join()
+	nanbaptiste.main()
 
 	print("test2")
 
