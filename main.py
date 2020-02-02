@@ -19,7 +19,7 @@ while True:
 	importlib.reload(nanbaptiste)
 
 	print("test")
-	#button_thread = Thread(target = nanbaptiste.main(), args=[])
+	button_thread = Thread(target = nanbaptiste.main(), args=[])
 	#button_thread.start()
 	#button_thread.join()
 
