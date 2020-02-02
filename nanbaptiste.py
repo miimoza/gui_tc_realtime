@@ -20,3 +20,4 @@ def button_check(gpio_number):
         if r == False:
             cmd = "play -q sounds/nanbaptiste.wav".split()
             Thread(target = subprocess.run, args = (cmd,)).start()
+            sleep(0.1)
