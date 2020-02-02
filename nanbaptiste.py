@@ -2,7 +2,8 @@ import RPi.GPIO as GPIO
 import time
 import pyaudio
 import wave
-
+import os
+import subprocess
 
 def main():
     GPIO.setwarnings(False)
@@ -16,6 +17,7 @@ def main():
         if r == False:
             print("bouton pressax")
             playsound("sounds/nanbaptiste.wav")
+            subprocess.run("play sounds/nanbaptiste.wav".split())
 
 
 def playsound(path):
