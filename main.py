@@ -15,6 +15,7 @@ while True:
 	importlib.reload(nadine)
 	importlib.reload(meteo)
 	importlib.reload(display)
+		print("test3")
 	importlib.reload(nanbaptiste)
 
 	print("test")
