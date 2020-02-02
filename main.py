@@ -21,6 +21,7 @@ while True:
 	print("test")
 	button_thread = Thread(target = nanbaptiste.main())
 	button_thread.start()
+	button_thread.join()
 
 	print("test2")
 
