@@ -13,7 +13,6 @@ def main():
 
     while True:
         r = GPIO.input(BUTTON1_PIN)
-        print(r)
         if r == False:
             print("bouton pressax")
             playsound("sounds/nanbaptiste.wav")
@@ -37,3 +36,6 @@ def playsound(path):
     stream.close()
 
     p.terminate()
+
+
+main()
