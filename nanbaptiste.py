@@ -13,6 +13,3 @@ def main():
         r = GPIO.input(BUTTON1_PIN)
         if r == False:
             subprocess.run("play -q sounds/nanbaptiste.wav".split())
-
-
-main()
