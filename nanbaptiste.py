@@ -8,7 +8,7 @@ def main():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
 
-    thread_button_1 = Thread(button_check, args = (18,))
+    thread_button_1 = Thread(button_check, args = ("18",))
 
     thread_button_1.start()
 
