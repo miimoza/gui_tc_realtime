@@ -17,10 +17,12 @@ while True:
 	importlib.reload(display)
 	importlib.reload(nanbaptiste)
 
+	print("test")
 	button_thread = Thread(target = nanbaptiste.main())
 	button_thread.start()
 
-	
+	print("test2")
+
 	gui_tc_realtime.main()
 	nadine.main()
 	meteo.main()
