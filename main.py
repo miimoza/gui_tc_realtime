@@ -2,7 +2,7 @@ import subprocess
 import importlib
 import gui_tc_realtime
 import nadine
-#import nanbaptiste
+import nanbaptiste
 import faits_divers
 import meteo
 import display
@@ -16,9 +16,9 @@ while True:
 	importlib.reload(meteo)
 	importlib.reload(display)
 	importlib.reload(faits_divers)
-	#importlib.reload(nanbaptiste)
+	importlib.reload(nanbaptiste)
 
-	#nanbaptiste.main()
+	nanbaptiste.main()
 	gui_tc_realtime.main()
 	nadine.main()
 	faits_divers.main()

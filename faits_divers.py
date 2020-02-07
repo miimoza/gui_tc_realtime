@@ -11,12 +11,9 @@ def faits_divers():
     region="ile-de-france"
     departement = "val-de-marne"
     city = "vitry-sur-seine"
-
-
+    
     request = "https://faitsdivers365.fr/" + region + "/" + departement + "/" + city + "/"
     html_doc = requests.get(request)
-
-
 
     soup = BeautifulSoup(html_doc.text, "html.parser")
 
