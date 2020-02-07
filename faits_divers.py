@@ -18,6 +18,8 @@ n = 30
 width = 30
 n_max = 59
 
+n = display.print_49(n, "="*5 + "[" + ("FAITS DIVERS").center(20) +"]" + "="*4)
+
 posts = soup.find_all('a', {'class': 'mh-thumb-icon'})
 dates = soup.find_all('span', {'class': 'mh-meta-date updated'})
 

@@ -31,7 +31,7 @@ def nadine():
 	include_rt = True
 
 	n = 0
-	n_max = 12
+	n_max = 14
 	width = 30
 
 
