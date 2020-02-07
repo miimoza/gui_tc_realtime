@@ -22,7 +22,7 @@ def faits_divers():
 
     n = 15
     width = 30
-    n_max = 59
+    n_max = 28
 
     n = display.print_49(n, "="*5 + "[" + ("FAITS DIVERS").center(20) +"]" + "="*4)
 
@@ -34,5 +34,3 @@ def faits_divers():
         n = display.breakline_49(n, width, n_max, posts[i]['title'])
         if n > n_max:
             break;
-
-    print(n)
