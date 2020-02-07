@@ -3,6 +3,7 @@ import importlib
 import gui_tc_realtime
 import nadine
 #import nanbaptiste
+import faits_divers
 import meteo
 import display
 import time
@@ -14,11 +15,13 @@ while True:
 	importlib.reload(nadine)
 	importlib.reload(meteo)
 	importlib.reload(display)
+	importlib.reload(faits_divers)
 	#importlib.reload(nanbaptiste)
 
 	#nanbaptiste.main()
 	gui_tc_realtime.main()
 	nadine.main()
+	faits_divers.main()
 	meteo.main()
 
 	display.move_cursor(28, 0)
