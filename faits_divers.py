@@ -22,7 +22,7 @@ def faits_divers():
 
     n = 15
     width = 30
-    n_max = 28
+    n_max = 26
 
     n = display.print_49(n, "="*5 + "[" + ("FAITS DIVERS").center(20) +"]" + "="*4)
 
