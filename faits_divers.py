@@ -20,7 +20,7 @@ def faits_divers():
 
     soup = BeautifulSoup(html_doc.text, "html.parser")
 
-    n = 30
+    n = 15
     width = 30
     n_max = 59
 
