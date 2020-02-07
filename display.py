@@ -11,14 +11,19 @@ def print_49(n, s):
 	return n+1
 
 
-def breakline_49(n, width, text):
+def breakline_49(n, width, n_max,  text):
+
 	lines = []
 	for i in range(0, len(text), width):
 		lines.append(text[i:i+width])
 
 	for l in lines:
 		print_49(n, l)
+
 		n+=1
+		if n >= n_max:
+			break;
+
 
 	return n
 
