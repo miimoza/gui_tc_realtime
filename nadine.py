@@ -27,7 +27,7 @@ def getText(data):
 
 def nadine():
 	username = "nadine__morano"
-	nb_tweet = 3
+	nb_tweet = 2
 	include_rt = True
 
 	n = 0
