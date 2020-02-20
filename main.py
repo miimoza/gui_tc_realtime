@@ -21,7 +21,7 @@ while True:
 	nanbaptiste.main()
 	gui_tc_realtime.main()
 	nadine.main()
-	faits_divers.main()
+	#faits_divers.main()
 	meteo.main()
 
 	display.move_cursor(28, 0)
