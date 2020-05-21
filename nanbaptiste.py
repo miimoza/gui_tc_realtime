@@ -8,7 +8,6 @@ def main():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
 
-
     thread_button_1 = Thread(target = button_check, args = (18,"sounds/nanbaptiste.wav"))
     thread_button_2 = Thread(target = button_check, args = (14,"sounds/tuvoispas.mp3"))
     thread_button_3 = Thread(target = button_check, args = (15,"sounds/jsuistresnet.mp3"))

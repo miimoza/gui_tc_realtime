@@ -9,6 +9,8 @@ import display
 import time
 
 
+importlib.reload(nanbaptiste)
+
 while True:
 	subprocess.check_call(["git","pull"])
 	importlib.reload(gui_tc_realtime)
@@ -16,7 +18,6 @@ while True:
 	importlib.reload(meteo)
 	importlib.reload(display)
 	importlib.reload(faits_divers)
-	importlib.reload(nanbaptiste)
 
 	nanbaptiste.main()
 	gui_tc_realtime.main()
