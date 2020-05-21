@@ -22,7 +22,7 @@ def button_check(gpio_number, sound_path):
     while True:
         r = GPIO.input(gpio_number)
         if r == False:
-            print("nan baptiste")
-            cmd = "play -q " + sound_path
+            cmd = "play -q " + sound_path + " -t alsa"
+
             Thread(target = subprocess.run, args = (cmd.split(),)).start()
             time.sleep(0.5)
