@@ -6,7 +6,6 @@ import glob
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
-import unidecode
 
 
 def main():
