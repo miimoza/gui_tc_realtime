@@ -14,46 +14,46 @@ def main():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
 
-    thread_button_1 = Thread(target = play_random_baptiste, args = (18,))
-    thread_button_2 = Thread(target = print_news, args = (14,))
-    thread_button_3 = Thread(target = print_news, args = (15,))
+    thread_button_1 = Thread(target = wrapper, args = (18,play_random_baptiste))
+    thread_button_2 = Thread(target = wrapper, args = (14,print_news))
+    thread_button_3 = Thread(target = wrapper, args = (15,print_news))
 
     thread_button_1.start()
     thread_button_2.start()
     thread_button_3.start()
     print("[button_wrapper] Launch Thread function")
 
-def play_random_baptiste(gpio_number):
+def wrapper(gpio_number, function):
     GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
     while True:
         r = GPIO.input(gpio_number)
         if r == False:
-            print("====super baptiste===")
-            sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/*.mp3")
-            print(sounds_list)
-            sound_path = sounds_list[random.randint(0, len(sounds_list) - 1)]
+            function()
 
-            cmd = "play -q " + sound_path + " -t alsa"
 
-            Thread(target = subprocess.run, args = (cmd.split(),)).start()
-            time.sleep(0.5)
+def play_random_baptiste():
+    print("====super baptiste===")
+    sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/*.mp3")
+    print(sounds_list)
+    sound_path = sounds_list[random.randint(0, len(sounds_list) - 1)]
 
-def print_news(gpio_number):
-    GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    cmd = "play -q " + sound_path + " -t alsa"
 
-    while True:
-        r = GPIO.input(gpio_number)
-        if r == False:
-            os.system('clear')
+    Thread(target = subprocess.run, args = (cmd.split(),)).start()
+    time.sleep(0.5)
 
-            news_data = getToday("ile-de-france", "val-de-marne")
-            print("cool ces news dis donc..")
-            print("news_data size:" + len(news_data))
-            print("n[0]", news_data[0], "[1]", news_data[1])
-            print("n[0]0", news_data[0][0], "[1]0", news_data[1][0])
-            for date, post in news_data.items():
-                print("[" + date + "] " + post)
+
+
+def print_news():
+    os.system('clear')
+
+    news_data = getToday("ile-de-france", "val-de-marne")
+    print("cool ces news dis donc..")
+    print("news_data size:" + len(news_data))
+    print("n[0]", news_data[0], "[1]", news_data[1])
+    print("n[0]0", news_data[0][0], "[1]0", news_data[1][0])
+    for date, post in news_data.items():
+        print("[" + date + "] " + post)
 
 def getToday(region, departement = "", city = ""):
     res = getNews(region, departement, city)

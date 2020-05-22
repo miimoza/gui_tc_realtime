@@ -12,6 +12,10 @@ import time
 importlib.reload(button_wrapper)
 button_wrapper.main()
 
+button_wrapper.play_random_baptiste()
+button_wrapper.print_news()
+
+
 while True:
 	subprocess.check_call(["git","pull"])
 	importlib.reload(gui_tc_realtime)
@@ -20,8 +24,9 @@ while True:
 	importlib.reload(display)
 	#importlib.reload(faits_divers)
 
-
 	gui_tc_realtime.main()
+
+
 	#nadine.main()
 	#faits_divers.main()
 	#meteo.main()
