@@ -13,8 +13,8 @@ def main():
     GPIO.setmode(GPIO.BCM)
 
     thread_button_1 = Thread(target = play_random_baptiste, args = (18))
-    thread_button_2 = Thread(target = print_news, args = (14))
-    thread_button_3 = Thread(target = print_news, args = (15))
+    thread_button_2 = Thread(target = print_news, args = (14,))
+    thread_button_3 = Thread(target = print_news, args = (15,))
 
     thread_button_1.start()
     thread_button_2.start()
