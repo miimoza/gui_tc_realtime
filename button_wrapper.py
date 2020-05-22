@@ -6,6 +6,8 @@ import glob
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
+import random
+import os
 
 
 def main():
