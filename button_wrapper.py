@@ -38,12 +38,18 @@ def play_random_baptiste(gpio_number):
             Thread(target = subprocess.run, args = (cmd.split(),)).start()
             time.sleep(0.5)
 
-def print_news(gpio_number):
-    os.system('clear')
-    print("cool ces news dis donc..")
-    news_data = getToday("ile-de-france", "val-de-marne")
-    for date, post in news_data:
-        print("[" + date + "] " + post)
+
+
+def getNews(region, departement = "", city = ""):
+    request = "https://faitsdivers365.fr/" + region + "/" + departement + "/" + city + "/"
+
+    html_doc = requests.get(request)
+    soup = BeautifulSoup(html_doc.text, "html.parser")
+
+    dates = soup.find_all('span', {'class': 'mh-meta-date updated'})
+    posts = soup.find_all('a', {'class': 'mh-thumb-icon'})
+
+    return {"dates":dates, "posts":posts};
 
 
 def getToday(region, departement = "", city = ""):
@@ -59,3 +65,10 @@ def getToday(region, departement = "", city = ""):
         i+=1
 
     return (dates, posts)
+
+def print_news(gpio_number):
+    os.system('clear')
+    print("cool ces news dis donc..")
+    news_data = getToday("ile-de-france", "val-de-marne")
+    for date, post in news_data:
+        print("[" + date + "] " + post)
