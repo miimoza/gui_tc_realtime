@@ -32,26 +32,27 @@ def play_random_baptiste(gpio_number):
             print("====super baptiste===")
             sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/*.mp3")
             print(sounds_list)
-            sound_path = sounds_list[random.randint(0, sounds_list.size() - 1)]
+            sound_path = sounds_list[random.randint(0, len(sounds_list) - 1)]
 
             cmd = "play -q " + sound_path + " -t alsa"
 
             Thread(target = subprocess.run, args = (cmd.split(),)).start()
             time.sleep(0.5)
 
+def print_news(gpio_number):
+    GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-
-def getNews(region, departement = "", city = ""):
-    request = "https://faitsdivers365.fr/" + region + "/" + departement + "/" + city + "/"
-
-    html_doc = requests.get(request)
-    soup = BeautifulSoup(html_doc.text, "html.parser")
-
-    dates = soup.find_all('span', {'class': 'mh-meta-date updated'})
-    posts = soup.find_all('a', {'class': 'mh-thumb-icon'})
-
-    return {"dates":dates, "posts":posts};
-
+    while True:
+        r = GPIO.input(gpio_number)
+        if r == False:
+            os.system('clear')
+            print("cool ces news dis donc..")
+            print("news_data size:" + len(news_data))
+            print("n[0]", news_data[0], "[1]", news_data[1])
+            print("n[0]0", news_data[0][0], "[1]0", news_data[1][0])
+            news_data = getToday("ile-de-france", "val-de-marne")
+            for date, post in news_data.items():
+                print("[" + date + "] " + post)
 
 def getToday(region, departement = "", city = ""):
     res = getNews(region, departement, city)
@@ -67,14 +68,13 @@ def getToday(region, departement = "", city = ""):
 
     return (dates, posts)
 
-def print_news(gpio_number):
-    GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+def getNews(region, departement = "", city = ""):
+    request = "https://faitsdivers365.fr/" + region + "/" + departement + "/" + city + "/"
 
-    while True:
-        r = GPIO.input(gpio_number)
-        if r == False:
-            os.system('clear')
-            print("cool ces news dis donc..")
-            news_data = getToday("ile-de-france", "val-de-marne")
-            for date, post in zip(news_data):
-                print("[" + date + "] " + post)
+    html_doc = requests.get(request)
+    soup = BeautifulSoup(html_doc.text, "html.parser")
+
+    dates = soup.find_all('span', {'class': 'mh-meta-date updated'})
+    posts = soup.find_all('a', {'class': 'mh-thumb-icon'})
+
+    return {"dates":dates, "posts":posts};
