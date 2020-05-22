@@ -37,7 +37,7 @@ def play_random_baptiste():
     print(sounds_list)
     print(len(sounds_list))
     index = random.randint(0, len(sounds_list) - 1)
-    print("rand:" + int(index))
+    print("rand:" + str(index))
     print(sounds_list[index])
 
 
