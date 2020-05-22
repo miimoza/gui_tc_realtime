@@ -10,6 +10,7 @@ import time
 
 
 importlib.reload(nanbaptiste)
+nanbaptiste.main()
 
 while True:
 	subprocess.check_call(["git","pull"])
@@ -19,7 +20,7 @@ while True:
 	importlib.reload(display)
 	importlib.reload(faits_divers)
 
-	nanbaptiste.main()
+
 	gui_tc_realtime.main()
 	nadine.main()
 	#faits_divers.main()
