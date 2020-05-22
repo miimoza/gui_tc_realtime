@@ -33,7 +33,7 @@ def wrapper(gpio_number, function):
 
 def play_random_baptiste():
     print("====super baptiste===")
-    sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/*.mp3")
+    sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/*")
     print(sounds_list)
     print(len(sounds_list))
     index = random.randint(0, len(sounds_list) - 1)
