@@ -26,13 +26,14 @@ def main():
 def play_random_baptiste(gpio_number):
     GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-    sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/*.mp3")
-    print(sounds_list)
-    sound_path = sounds_list[random.randint(0, sounds_list.size() - 1)]
-
     while True:
         r = GPIO.input(gpio_number)
         if r == False:
+            print("====super baptiste===")
+            sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/*.mp3")
+            print(sounds_list)
+            sound_path = sounds_list[random.randint(0, sounds_list.size() - 1)]
+
             cmd = "play -q " + sound_path + " -t alsa"
 
             Thread(target = subprocess.run, args = (cmd.split(),)).start()
@@ -67,8 +68,13 @@ def getToday(region, departement = "", city = ""):
     return (dates, posts)
 
 def print_news(gpio_number):
-    os.system('clear')
-    print("cool ces news dis donc..")
-    news_data = getToday("ile-de-france", "val-de-marne")
-    for date, post in news_data:
-        print("[" + date + "] " + post)
+    GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+    while True:
+        r = GPIO.input(gpio_number)
+        if r == False:
+            os.system('clear')
+            print("cool ces news dis donc..")
+            news_data = getToday("ile-de-france", "val-de-marne")
+            for date, post in zip(news_data):
+                print("[" + date + "] " + post)
