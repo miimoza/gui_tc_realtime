@@ -46,11 +46,12 @@ def print_news(gpio_number):
         r = GPIO.input(gpio_number)
         if r == False:
             os.system('clear')
+
+            news_data = getToday("ile-de-france", "val-de-marne")
             print("cool ces news dis donc..")
             print("news_data size:" + len(news_data))
             print("n[0]", news_data[0], "[1]", news_data[1])
             print("n[0]0", news_data[0][0], "[1]0", news_data[1][0])
-            news_data = getToday("ile-de-france", "val-de-marne")
             for date, post in news_data.items():
                 print("[" + date + "] " + post)
 
