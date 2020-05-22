@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import random
 import os
-
+import display
 
 def main():
     GPIO.setwarnings(False)
@@ -56,8 +56,15 @@ def print_news():
     print("news_data size:" + str(len(news_data)))
     print("n[0]", news_data[0], "[1]", news_data[1])
     print("n[0]0", news_data[0][0], "[1]0", news_data[1][0])
-    for date, post in news_data.items():
-        print("[" + date + "] " + post)
+
+
+    n = 0
+    width = 47
+    n_max = 26
+    for i in range(0, len(news_data)):
+        n = display.breakline_n(49, n, width, n_max, "[" + news_data[0][i] + "] " + news_data[1][i])
+
+
 
 def getToday(region, departement = "", city = ""):
     res = getNews(region, departement, city)

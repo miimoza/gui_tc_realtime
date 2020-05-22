@@ -104,7 +104,7 @@ def meteo():
 	n = 15
 
 
-	#n = display.print_49(n, "="*10 + "[" + " METEO ".center(10) +"]" + "="*9)
+	#n = display.print_n(49, n, "="*10 + "[" + " METEO ".center(10) +"]" + "="*9)
 
 	api = "https://api.meteo-concept.com/api/"
 	token = "82caf19ff0ff78534e4ca42c6695a2c53b770ea9bb4404cbf0f826c45bd03d32"
@@ -112,19 +112,19 @@ def meteo():
 
 	'''
 	#=====================================================
-	n = display.print_49(n, (" AUJOURD'HUI ").center(30, "_"))
+	n = display.print_n(49, n, (" AUJOURD'HUI ").center(30, "_"))
 	route = "ephemeride/0"
 	request = api + route + "?token=" + token + param
 	res = requests.get(request)
-	n = display.print_49(n, res)
+	n = display.print_n(49, n, res)
 
 	ephemeride = res.json()["ephemeride"]
 
-	n = display.print_49(n, "sunrise: " + ephemeride["sunrise"])
-	n = display.print_49(n, "sunset: " + ephemeride["sunset"])
-	n = display.print_49(n, "day duration: " + ephemeride["duration_day"])
-	n = display.print_49(n, "moon age: " + str(ephemeride["moon_age"]))
-	n = display.print_49(n, "moon phase: " + ephemeride["moon_phase"])
+	n = display.print_n(49, n, "sunrise: " + ephemeride["sunrise"])
+	n = display.print_n(49, n, "sunset: " + ephemeride["sunset"])
+	n = display.print_n(49, n, "day duration: " + ephemeride["duration_day"])
+	n = display.print_n(49, n, "moon age: " + str(ephemeride["moon_age"]))
+	n = display.print_n(49, n, "moon phase: " + ephemeride["moon_phase"])
 
 	#====================================================
 	route = "forecast/daily/0"
@@ -133,12 +133,12 @@ def meteo():
 	res = requests.get(request)
 	forecast = res.json()['forecast']
 
-	n = display.print_49(n, "\n" + get_weather(forecast["weather"]))
+	n = display.print_n(49, n, "\n" + get_weather(forecast["weather"]))
 
-	n = display.print_49(n, str(forecast["tmin"]) + "-" + str(forecast["tmax"]) + "°C")
-	n = display.print_49(n, forecast["sun_hours"])
-	n = display.print_49(n, "Vitesse du vent (v): " + str(forecast["wind10m"]))
-	n = display.print_49(n, "Probablite de pluie (p)" + str(forecast["probarain"]))
+	n = display.print_n(49, n, str(forecast["tmin"]) + "-" + str(forecast["tmax"]) + "°C")
+	n = display.print_n(49, n, forecast["sun_hours"])
+	n = display.print_n(49, n, "Vitesse du vent (v): " + str(forecast["wind10m"]))
+	n = display.print_n(49, n, "Probablite de pluie (p)" + str(forecast["probarain"]))
 
 	#======================================================
 	route = "forecast/daily/0/periods"
@@ -148,8 +148,8 @@ def meteo():
 
 
 	for f, day_step in zip(forecast, ["nuit", "matin", "apres midi", "soir"]):
-		n = display.print_49(n, (" " + day_step + " ").center(30, "-"))
-		n = display.print_49(n, "p: " + str(f["probarain"]) + "%")
-		n = display.print_49(n, re.sub("(.{30})", "\\1\n", get_weather(f["weather"]), 0, re.DOTALL))
+		n = display.print_n(49, n, (" " + day_step + " ").center(30, "-"))
+		n = display.print_n(49, n, "p: " + str(f["probarain"]) + "%")
+		n = display.print_n(49, n, re.sub("(.{30})", "\\1\n", get_weather(f["weather"]), 0, re.DOTALL))
 
 '''

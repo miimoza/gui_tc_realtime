@@ -4,21 +4,21 @@ import re
 def move_cursor(y, x):
 	os.system("tput cup " + str(y) + " " + str(x))
 
-def print_49(n, s):
-	move_cursor(n, 49)
+def print_n(w, n, s):
+	move_cursor(n, w)
 	print(s)
 
 	return n+1
 
 
-def breakline_49(n, width, n_max,  text):
+def breakline_n(w, n, width, n_max,  text):
 
 	lines = []
 	for i in range(0, len(text), width):
 		lines.append(text[i:i+width])
 
 	for l in lines:
-		print_49(n, l)
+		print_n(w, n, l)
 
 		n+=1
 		if n >= n_max:

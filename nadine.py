@@ -35,7 +35,7 @@ def nadine():
 	width = 30
 
 
-	n = display.print_49(n, "="*5 + "[" + ("@" + username).center(20) +"]" + "="*4)
+	n = display.print_n(49, n, "="*5 + "[" + ("@" + username).center(20) +"]" + "="*4)
 
 	# Enter your keys/secrets as strings in the following fields
 	credentials = {}
@@ -54,5 +54,5 @@ def nadine():
 	res = twitter.get_user_timeline(screen_name = username, count = nb_tweet, exclude_replies=True, tweet_mode="extended", include_rts = include_rt)
 
 	for t in res:
-		n = display.breakline_49(n, width, n_max,  display.remove_link(getText(t)))
-		n = display.print_49(n, '-'*width)
+		n = display.breakline_n(49, n, width, n_max,  display.remove_link(getText(t)))
+		n = display.print_n(49, n, '-'*width)

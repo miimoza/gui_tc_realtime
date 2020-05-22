@@ -11,7 +11,7 @@ def faits_divers():
     region="ile-de-france"
     departement = "val-de-marne"
     city = "vitry-sur-seine"
-    
+
     request = "https://faitsdivers365.fr/" + region + "/" + departement + "/" + city + "/"
     html_doc = requests.get(request)
 
@@ -21,13 +21,13 @@ def faits_divers():
     width = 30
     n_max = 26
 
-    n = display.print_49(n, "="*5 + "[" + ("FAITS DIVERS").center(20) +"]" + "="*4)
+    n = display.print_n(49, n, "="*5 + "[" + ("FAITS DIVERS").center(20) +"]" + "="*4)
 
     posts = soup.find_all('a', {'class': 'mh-thumb-icon'})
     dates = soup.find_all('span', {'class': 'mh-meta-date updated'})
 
     for i in range(0,10):
-        n = display.print_49(n, '-'*10 + dates[i].text.center(10, '-') + '-'*10)
-        n = display.breakline_49(n, width, n_max, posts[i]['title'])
+        n = display.print_n(49, n, '-'*10 + dates[i].text.center(10, '-') + '-'*10)
+        n = display.breakline_n(49, n, width, n_max, posts[i]['title'])
         if n > n_max:
             break;
