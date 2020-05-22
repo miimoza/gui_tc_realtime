@@ -2,15 +2,15 @@ import subprocess
 import importlib
 import gui_tc_realtime
 import nadine
-import nanbaptiste
+import button_wrapper
 import faits_divers
 import meteo
 import display
 import time
 
 
-importlib.reload(nanbaptiste)
-nanbaptiste.main()
+importlib.reload(button_wrapper)
+button_wrapper.main()
 
 while True:
 	subprocess.check_call(["git","pull"])

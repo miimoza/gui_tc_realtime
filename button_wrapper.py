@@ -26,3 +26,14 @@ def button_check(gpio_number, sound_path):
 
             Thread(target = subprocess.run, args = (cmd.split(),)).start()
             time.sleep(0.5)
+
+def print_news(gpio_number):
+    GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+    while True:
+        r = GPIO.input(gpio_number)
+        if r == False:
+            cmd = "play -q " + sound_path + " -t alsa"
+
+            Thread(target = subprocess.run, args = (cmd.split(),)).start()
+            time.sleep(0.5)
