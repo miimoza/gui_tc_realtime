@@ -35,9 +35,13 @@ def play_random_baptiste():
     print("====super baptiste===")
     sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/*.mp3")
     print(sounds_list)
-    sound_path = sounds_list[random.randint(0, len(sounds_list) - 1)]
+    print(len(sounds_list))
+    index = random.randint(0, len(sounds_list) - 1)
+    print("rand:" + index)
+    print(sounds_list[index])
 
-    cmd = "play -q " + sound_path + " -t alsa"
+
+    cmd = "play -q " + sounds_list[index] + " -t alsa"
 
     Thread(target = subprocess.run, args = (cmd.split(),)).start()
     time.sleep(0.5)
@@ -49,7 +53,7 @@ def print_news():
 
     news_data = getToday("ile-de-france", "val-de-marne")
     print("cool ces news dis donc..")
-    print("news_data size:" + len(news_data))
+    print("news_data size:" + str(len(news_data)))
     print("n[0]", news_data[0], "[1]", news_data[1])
     print("n[0]0", news_data[0][0], "[1]0", news_data[1][0])
     for date, post in news_data.items():
