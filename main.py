@@ -15,14 +15,14 @@ nanbaptiste.main()
 while True:
 	subprocess.check_call(["git","pull"])
 	importlib.reload(gui_tc_realtime)
-	importlib.reload(nadine)
+	#importlib.reload(nadine)
 	importlib.reload(meteo)
 	importlib.reload(display)
 	importlib.reload(faits_divers)
 
 
 	gui_tc_realtime.main()
-	nadine.main()
+	#nadine.main()
 	#faits_divers.main()
 	meteo.main()
 
