@@ -30,27 +30,15 @@ def wrapper(gpio_number, function):
         if r == False:
             function()
 
-
 def play_random_baptiste():
-    print("====super baptiste===")
     sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/*")
-    print(sounds_list)
-    print(len(sounds_list))
     index = random.randint(0, len(sounds_list) - 1)
-    print("rand:" + str(index))
-    print(sounds_list[index])
-
-
     cmd = "play -q " + sounds_list[index] + " -t alsa"
-
     Thread(target = subprocess.run, args = (cmd.split(),)).start()
     time.sleep(0.5)
 
-
-
 def print_news():
     os.system('clear')
-
     news_data = getToday("ile-de-france", "val-de-marne")
     print("cool ces news dis donc..")
     print("news_data size:" + str(len(news_data)))
