@@ -38,8 +38,9 @@ def play_random_baptiste():
     time.sleep(0.5)
 
 def print_news():
-    os.system('clear')
+
     news_data = getToday("ile-de-france", "val-de-marne")
+    os.system('clear')
     print("cool ces news dis donc..")
     print("news_data size:" + str(len(news_data)))
     print("n[0]", news_data[0], "[1]", news_data[1])
@@ -71,6 +72,7 @@ def getToday(region, departement = "", city = ""):
 def getNews(region, departement = "", city = ""):
     request = "https://faitsdivers365.fr/" + region + "/" + departement + "/" + city + "/"
 
+    print("GET " + request + "...")
     html_doc = requests.get(request)
     soup = BeautifulSoup(html_doc.text, "html.parser")
 
