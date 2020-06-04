@@ -18,7 +18,7 @@ def main():
 def gui_tc():
 	H_180_A = subprocess.getoutput("./skedul.sh b 180 'port a l anglais' A")
 	H_180_R = subprocess.getoutput("./skedul.sh b 180 'port a l anglais' R")
-	H_217_A = subprocess.getoutput("./skedul.sh b 217 'vitry RER' A")
+	H_217_A = subprocess.getoutput("./skedul.sh b 217 \"port a l'anglais\" A")
 	H_25_A = subprocess.getoutput("./skedul.sh b 25 'Duras' R")
 	H_323_R = subprocess.getoutput("./skedul.sh b 323 'Gambetta' R")
 	H_125_A = subprocess.getoutput("./skedul.sh b 125 'Gambetta' A")
