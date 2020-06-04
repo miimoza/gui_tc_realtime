@@ -12,11 +12,6 @@ import time
 importlib.reload(button_wrapper)
 button_wrapper.main()
 
-button_wrapper.play_random_baptiste()
-button_wrapper.play_random_baptiste()
-button_wrapper.play_random_baptiste()
-button_wrapper.play_random_baptiste()
-button_wrapper.print_news()
 
 
 while True:
