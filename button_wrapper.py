@@ -15,8 +15,8 @@ def main():
     GPIO.setmode(GPIO.BCM)
 
     thread_button_1 = Thread(target = wrapper, args = (18,play_random_baptiste))
-    thread_button_2 = Thread(target = wrapper, args = (14,print_news))
-    thread_button_3 = Thread(target = wrapper, args = (15,print_news))
+    thread_button_2 = Thread(target = wrapper, args = (14,play_random_maman))
+    thread_button_3 = Thread(target = wrapper, args = (15,play_random_frere))
 
     thread_button_1.start()
     thread_button_2.start()
@@ -31,7 +31,21 @@ def wrapper(gpio_number, function):
             function()
 
 def play_random_baptiste():
-    sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/*")
+    sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/baptiste/*")
+    index = random.randint(0, len(sounds_list) - 1)
+    cmd = "play -q " + sounds_list[index] + " -t alsa"
+    Thread(target = subprocess.run, args = (cmd.split(),)).start()
+    time.sleep(0.5)
+
+def play_random_maman():
+    sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/maman/*")
+    index = random.randint(0, len(sounds_list) - 1)
+    cmd = "play -q " + sounds_list[index] + " -t alsa"
+    Thread(target = subprocess.run, args = (cmd.split(),)).start()
+    time.sleep(0.5)
+
+def play_random_frere():
+    sounds_list = glob.glob("/home/pi/gui_tc_realtime/sounds/frere/*")
     index = random.randint(0, len(sounds_list) - 1)
     cmd = "play -q " + sounds_list[index] + " -t alsa"
     Thread(target = subprocess.run, args = (cmd.split(),)).start()
