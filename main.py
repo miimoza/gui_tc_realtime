@@ -25,7 +25,7 @@ while True:
 	gui_tc_realtime.main()
 
 
-	#nadine.main()
+	nadine.main()
 	#faits_divers.main()
 	#meteo.main()
 
