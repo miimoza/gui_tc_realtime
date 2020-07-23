@@ -33,8 +33,8 @@ def gui_tc():
 		H_C_CHS = ET.fromstring(r_C_CHS.content)
 	except Exception as e:
 		err_api_sncf = True
-        print("petite error O C L M")
-        return
+		print("petite error O C L M")
+		return
 
 
 	os.system('clear')
