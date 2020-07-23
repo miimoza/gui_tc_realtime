@@ -23,12 +23,16 @@ def gui_tc():
 	H_323_R = subprocess.getoutput("./skedul.sh b 323 'Gambetta' R")
 	H_125_A = subprocess.getoutput("./skedul.sh b 125 'Gambetta' A")
 	H_125_R = subprocess.getoutput("./skedul.sh b 125 'Gambetta' R")
-	r_C_ALL = requests.get('https://api.transilien.com/gare/87545293/depart', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
 
-	r_C_BNF = requests.get('https://api.transilien.com/gare/87545293/depart/87328328', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
-	r_C_CHS = requests.get('https://api.transilien.com/gare/87545293/depart/87545285', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
-	H_C_BNF = ET.fromstring(r_C_BNF.content)
-	H_C_CHS = ET.fromstring(r_C_CHS.content)
+	err_api_sncf = False
+	try:
+		r_C_ALL = requests.get('https://api.transilien.com/gare/87545293/depart', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
+		r_C_BNF = requests.get('https://api.transilien.com/gare/87545293/depart/87328328', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
+		r_C_CHS = requests.get('https://api.transilien.com/gare/87545293/depart/87545285', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
+		H_C_BNF = ET.fromstring(r_C_BNF.content)
+		H_C_CHS = ET.fromstring(r_C_CHS.content)
+	except Error:
+		err_api_sncf = True
 
 
 	os.system('clear')
@@ -37,15 +41,16 @@ def gui_tc():
 	print("-"*14 + " GARE VITRY ".center(20,"-") + "-"*5 + "-(RER C)-")
 	print("VERS BNF".center(24) + "|" + "VERS CHOISY".center(23))
 
-	i=0
-	for E_C_BNF, E_C_CHS in zip(H_C_BNF.findall('train'), H_C_CHS.findall('train')):
-		if i < 5:
-			print((E_C_BNF.find('date').text + ' ' + E_C_BNF.find('miss').text).center(24), end='|')
-			print((E_C_CHS.find('date').text + ' ' + (E_C_CHS.find('miss').text)).center(23))
-		i+=1
+	if not err_api_sncf:
+		i=0
+		for E_C_BNF, E_C_CHS in zip(H_C_BNF.findall('train'), H_C_CHS.findall('train')):
+			if i < 5:
+				print((E_C_BNF.find('date').text + ' ' + E_C_BNF.find('miss').text).center(24), end='|')
+				print((E_C_CHS.find('date').text + ' ' + (E_C_CHS.find('miss').text)).center(23))
+			i+=1
 
-	if i < 5:
-		print('\n' * (5 - i))
+		if i < 5:
+			print('\n' * (5 - i))
 
 	print("-"*14 + " PORT A L'ANGLAIS ".center(20,"-") + "-"*7 + "-(180)-")
 	print(H_180_A)
