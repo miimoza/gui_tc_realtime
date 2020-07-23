@@ -31,8 +31,10 @@ def gui_tc():
 		r_C_CHS = requests.get('https://api.transilien.com/gare/87545293/depart/87545285', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
 		H_C_BNF = ET.fromstring(r_C_BNF.content)
 		H_C_CHS = ET.fromstring(r_C_CHS.content)
-	except Error:
+	except Exception as e:
 		err_api_sncf = True
+        print("petite error O C L M")
+        return
 
 
 	os.system('clear')
