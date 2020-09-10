@@ -12,14 +12,19 @@ import time
 importlib.reload(button_wrapper)
 button_wrapper.main()
 
-
+subprocess.check_call(["git","pull"])
+importlib.reload(gui_tc_realtime)
+importlib.reload(nadine)
+importlib.reload(meteo)
+importlib.reload(display)
+importlib.reload(faits_divers)	
 
 while True:
-	subprocess.check_call(["git","pull"])
-	importlib.reload(gui_tc_realtime)
-	importlib.reload(nadine)
+	#subprocess.check_call(["git","pull"])
+	#importlib.reload(gui_tc_realtime)
+	#importlib.reload(nadine)
 	#importlib.reload(meteo)
-	importlib.reload(display)
+	#importlib.reload(display)
 	#importlib.reload(faits_divers)
 
 	gui_tc_realtime.main()
